@@ -49,8 +49,6 @@ print
 # <codecell>
 
 def getTime(spanName):
-#    <div id="divRecipeTimesContainer" class="right-aside preptime fl-right">
-     
     find = soup.find("div",{"id":"divRecipeTimesContainer"}).find("span", {"id": spanName})
     if find.__class__.__name__ != "NoneType":
       return " " + find.get_text().encode("ascii")
