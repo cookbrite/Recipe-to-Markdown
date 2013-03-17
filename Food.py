@@ -1,4 +1,6 @@
-# -*- coding: utf-8 -*-
+# Need to update to match structure
+
+<!-- # -*- coding: utf-8 -*-
 # <nbformat>3.0</nbformat>
 
 # <codecell>
@@ -87,4 +89,4 @@ print "Directions:"
 print
 
 for x in soup.find("div", {"class" : "pod directions"}).findAll("div",{"class":"txt"}):
-    print "* " + x.string
+    print "* " + x.string -->
