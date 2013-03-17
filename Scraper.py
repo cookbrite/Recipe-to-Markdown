@@ -13,22 +13,21 @@ class RecipeScraper():
         self.soup = BeautifulSoup(urllib2.urlopen(url).read())
     
     def title(self):
-        print "AAAA"
         raise NotImplementedError( "Should have implemented this" )
     
     def url(self):
         raise NotImplementedError( "Should have implemented this" )
         
-    def numServings(self):
+    def num_servings(self):
         raise NotImplementedError( "Should have implemented this" )
         
-    def prepTime(self):
+    def prep_time(self):
         raise NotImplementedError( "Should have implemented this" )
         
-    def cookTime(self):
+    def cook_time(self):
         raise NotImplementedError( "Should have implemented this" )
         
-    def totalTime(self):
+    def total_time(self):
         raise NotImplementedError( "Should have implemented this" )
         
     def ingredients(self):
@@ -40,7 +39,7 @@ class RecipeScraper():
     def note(self):
         raise NotImplementedError( "Should have implemented this" )
         
-    def writeToFile(self, path = "~/Dropbox/Text Notes/"):
+    def write_to_file(self, path = "~/Dropbox/Text Notes/"):
 
         path = os.path.expanduser(path)
 
@@ -57,12 +56,14 @@ class RecipeScraper():
         print self.url
         print 
 
-        print "Servings: ", self.numServings()
-        print 
+        print "* Servings:", self.num_servings() 
 
-        print "* Prep Time  :", self.prepTime()
-        print "* Cook Time  :", self.cookTime()
-        print "* Total Time :", self.totalTime()
+        if self.prep_time() != "":
+            print "* Prep Time:", self.prep_time()
+        if self.cook_time() != "":
+            print "* Cook Time:", self.cook_time()
+        if self.total_time() != "":
+            print "* Total Time:", self.total_time()
         print
 
         print "Ingredients:"
@@ -79,4 +80,4 @@ class RecipeScraper():
             print str(i) + ".", s
 
         sys.stdout = saveout
-        
+        fsock.close()

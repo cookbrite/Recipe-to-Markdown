@@ -17,17 +17,17 @@ class AllRecipesCom(RecipeScraper):
     def url(self):
         return self.url
 
-    def numServings(self):
+    def num_servings(self):
         return self.soup.find("div", {"class": "servings"}).find("span", {"id":"lblYield"}).string.split(" ")[0]
     
-    def prepTime(self):
-        return self.getTime("prepHoursSpan") + self.getTime("prepMinsSpan")
+    def prep_time(self):
+        return self.get_time("prepHoursSpan") + self.get_time("prepMinsSpan")
         
-    def cookTime(self):
-        return self.getTime("cookHoursSpan") + self.getTime("cookMinsSpan")
+    def cook_time(self):
+        return self.get_time("cookHoursSpan") + self.get_time("cookMinsSpan")
         
-    def totalTime(self):
-        return self.getTime("totalHoursSpan") + self.getTime("totalMinsSpan")
+    def total_time(self):
+        return self.get_time("totalHoursSpan") + self.get_time("totalMinsSpan")
         
     def ingredients(self):
         for s in self.soup.findAll("p", {"itemprop":"ingredients"}):
@@ -40,7 +40,7 @@ class AllRecipesCom(RecipeScraper):
     def note(self):
         return ""
     
-    def getTime(self, spanName):
+    def get_time(self, spanName):
         find = self.soup.find("div",{"id":"divRecipeTimesContainer"}).find("span", {"id": spanName})
         if find.__class__.__name__ != "NoneType":
           return " " + find.get_text().encode("ascii")
