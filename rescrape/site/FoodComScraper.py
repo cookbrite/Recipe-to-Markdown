@@ -1,11 +1,7 @@
 #!/usr/bin/env python
 # encoding: utf-8
 
-import os
-import sys
-import urllib2
-from bs4 import BeautifulSoup
-from Scraper import RecipeScraper
+from AbstractScraper import RecipeScraper
 
 
 class FoodCom(RecipeScraper):

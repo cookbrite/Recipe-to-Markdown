@@ -1,13 +1,6 @@
 #!/usr/bin/env python
 # encoding: utf-8
-"""
-AllRecipesComScraper.py
-
-Created by Timothy Hopper on 2013-03-16.
-Copyright (c) 2013 __MyCompanyName__. All rights reserved.
-"""
-
-from Scraper import RecipeScraper
+from AbstractScraper import RecipeScraper
 
 
 class PioneerWoman(RecipeScraper):

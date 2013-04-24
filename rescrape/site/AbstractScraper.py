@@ -86,8 +86,8 @@ class RecipeScraper():
     def note(self):
         raise NotImplementedError("Should have implemented this")
 
-    def write(self, fileName=None, path="~/Dropbox/Text Notes/"):
-        if fileName is not None:
+    def write(self, to_file=False, path="~/Dropbox/Text Notes/"):
+        if to_file:
             path = os.path.expanduser(path)
 
             fileName = path + self.title() + ".txt"
@@ -126,6 +126,6 @@ class RecipeScraper():
         for i, s in enumerate(self.directions(), 1):
             print str(i) + ".", s
 
-        if fileName is not None:
+        if to_file:
             sys.stdout = saveout
             fsock.close()
