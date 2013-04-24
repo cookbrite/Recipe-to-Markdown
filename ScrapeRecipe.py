@@ -74,10 +74,10 @@ def main(argv=None):
 	
 	if "allrecipes.com" in url:
 	    scraper = AllRecipesCom(url)
-	    scraper.write_to_file()
+	    scraper.write()
 	elif "thepioneerwoman.com" in url:
 	    scraper = PioneerWoman(url)
-	    scraper.write_to_file()
+	    scraper.write()
 
 
 if __name__ == "__main__":

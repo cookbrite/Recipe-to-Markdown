@@ -1,5 +1,5 @@
 
 *.plist
-
+*.pyc
 *.txt
 *.ipynb
