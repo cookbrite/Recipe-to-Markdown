@@ -34,6 +34,8 @@ You can also use the write function to create a text file:
 s.write(to_file = true, "~/Recipes/")
 ```
 
+For the [grilled salmon](http://allrecipes.com/Recipe/Grilled-Salmon-I/Detail.aspx) recipe, you'll get this:
+
 > Grilled Salmon I Recipe
 >
 > http://allrecipes.com/Recipe/Grilled-Salmon-I/Detail.aspx
@@ -57,6 +59,6 @@ s.write(to_file = true, "~/Recipes/")
 > Directions:
 >
 > 1. Season salmon fillets with lemon pepper, garlic powder, and salt.
-> 2. In a small bowl, stir together soy sauce, brown sugar, water, and vegetable oil until sugar is dissolved. Place fish in a large resealable > plastic bag with the soy sauce mixture, seal, and turn to coat. Refrigerate for at least 2 hours.
+> 2. In a small bowl, stir together soy sauce, brown sugar, water, and vegetable oil until sugar is dissolved. Place fish in a large resealable plastic bag with the soy sauce mixture, seal, and turn to coat. Refrigerate for at least 2 hours.
 > 3. Preheat grill for medium heat.
 > 4. Lightly oil grill grate. Place salmon on the preheated grill, and discard marinade. Cook salmon for 6 to 8 minutes per side, or until the fish flakes easily with a fork.
