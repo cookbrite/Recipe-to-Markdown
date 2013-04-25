@@ -10,7 +10,7 @@ Copyright (c) 2013 __MyCompanyName__. All rights reserved.
 from AbstractScraper import RecipeScraper
 
 
-class AllRecipesCom(RecipeScraper):
+class AllRecipes(RecipeScraper):
 
     def title(self):
         return self.soup.title.string.encode("ascii", 'ignore').strip().split(" - ")[0]
@@ -32,11 +32,11 @@ class AllRecipesCom(RecipeScraper):
 
     def ingredients(self):
         for s in self.soup.findAll("p", {"itemprop": "ingredients"}):
-            yield s.get_text().encode("ascii").strip().replace("\n", " ")
+            yield s.get_text().encode("ascii", "ignore").strip().replace("\n", " ")
 
     def directions(self):
         for s in self.soup.findAll("span", {"class": "plaincharacterwrap"}):
-            yield s.get_text().encode("ascii").strip().replace("\n", " ")
+            yield s.get_text().encode("ascii", "ignore").strip().replace("\n", " ")
 
     def note(self):
         return ""

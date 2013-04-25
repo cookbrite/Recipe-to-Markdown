@@ -1,1 +1,1 @@
-import ScrapeRecipe
+from ScrapeRecipe import save_recipe
