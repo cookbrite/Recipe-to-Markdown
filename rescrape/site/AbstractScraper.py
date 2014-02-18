@@ -89,43 +89,38 @@ class RecipeScraper():
     def write(self, to_file=False, path="~/Dropbox/Text Notes/"):
         if to_file:
             path = os.path.expanduser(path)
-
             fileName = os.path.join(path, self.title() + ".txt")
-
-            saveout = sys.stdout
             fsock = open(fileName, 'w')
-            sys.stdout = fsock
+        else:
+            fsock = sys.stdout
 
         # Print recipe title
-        print self.title()
-        print
+        fsock.write("# %s\n\n" % self.title())
 
-        print self.url
-        print
+        fsock.write("From: %s\n\n" % self.url)
 
-        print "* Servings:", self.num_servings()
+        fsock.write("* Servings: %s\n" % self.num_servings())
 
         if self.prep_time() != "":
-            print "* Prep Time:", self.prep_time()
+            fsock.write("* Prep Time: %s\n" % self.prep_time())
         if self.cook_time() != "":
-            print "* Cook Time:", self.cook_time()
+            fsock.write("* Cook Time: %s\n" % self.cook_time())
         if self.total_time() != "":
-            print "* Total Time:", self.total_time()
-        print
+            fsock.write("* Total Time: %s\n" % self.total_time())
+        fsock.write("\n")
 
-        print "Ingredients:"
-        print
+        fsock.write("## Ingredients:\n")
+        fsock.write("\n")
 
         for s in self.ingredients():
-            print "*", s
-        print
+            fsock.write("* %s\n" % s)
+        fsock.write("\n")
 
-        print "Directions:"
-        print
+        fsock.write("## Directions:\n")
+        fsock.write("\n")
 
         for i, s in enumerate(self.directions(), 1):
-            print str(i) + ".", s
+            fsock.write("%d. %s\n" % (i, s))
 
         if to_file:
-            sys.stdout = saveout
             fsock.close()
