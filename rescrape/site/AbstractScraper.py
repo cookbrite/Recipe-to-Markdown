@@ -90,7 +90,7 @@ class RecipeScraper():
         if to_file:
             path = os.path.expanduser(path)
 
-            fileName = path + self.title() + ".txt"
+            fileName = os.path.join(path, self.title() + ".txt")
 
             saveout = sys.stdout
             fsock = open(fileName, 'w')
