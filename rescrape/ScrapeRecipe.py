@@ -10,7 +10,7 @@ import sys
 import getopt
 import httplib
 import urlparse
-from site import *
+from rescrape.site import *
 
 
 def get_server_status_code(url):
@@ -80,15 +80,15 @@ def save_recipe(url):
         return 2
 
     if "allrecipes.com" in url:
-        scraper = AllRecipesCom(url)
-        scraper.write(to_file=True)
+        scraper = AllRecipes(url)
     elif "thepioneerwoman.com" in url:
         scraper = PioneerWoman(url)
-        scraper.write(to_file=True)
-    if "food.com" in url:
+    elif "food.com" in url:
         scraper = FoodCom(url)
-        scraper.write(to_file=True)
+    else:
+        raise ValueError("Unrecognized site: " + url)
 
+    scraper.write(to_file=True, path="~/tmp")
 
 if __name__ == "__main__":
     sys.exit(cmd_line_main())
